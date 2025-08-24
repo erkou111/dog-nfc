@@ -12,7 +12,17 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-primary opacity-10"></div>
         <div className="container mx-auto px-4 py-16 relative">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
+            <div className="relative inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
+              {/* 装饰性涂鸦元素 */}
+              <div className="absolute -top-2 -left-2 text-yellow-400 text-xs animate-bounce" style={{animationDelay: '0.5s'}}>✨</div>
+              <div className="absolute -top-1 -right-3 text-pink-400 text-xs animate-bounce" style={{animationDelay: '1s'}}>🌟</div>
+              <div className="absolute -bottom-2 left-1 text-blue-400 text-xs animate-bounce" style={{animationDelay: '1.5s'}}>💫</div>
+              <div className="absolute -bottom-1 -right-1 text-green-400 text-xs animate-bounce" style={{animationDelay: '2s'}}>⭐</div>
+              
+              {/* 小圆点装饰 */}
+              <div className="absolute top-0 left-8 w-1 h-1 bg-yellow-300 rounded-full animate-pulse" style={{animationDelay: '0.3s'}}></div>
+              <div className="absolute bottom-0 right-8 w-1 h-1 bg-pink-300 rounded-full animate-pulse" style={{animationDelay: '0.8s'}}></div>
+              
               <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
               <span className="text-primary font-medium">NFC智能宠物标签系统</span>
             </div>
@@ -26,7 +36,7 @@ const Index = () => {
           </div>
 
           {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-2xl mx-auto">
             <Card className="text-center hover:shadow-dog-card transition-all duration-300 animate-slide-up" style={{animationDelay: '400ms'}}>
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
@@ -37,16 +47,7 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card className="text-center hover:shadow-dog-card transition-all duration-300 animate-slide-up" style={{animationDelay: '600ms'}}>
-              <CardContent className="p-6">
-                <div className="w-12 h-12 bg-gradient-warm rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Wifi className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-semibold mb-2">实时健康监控</h3>
-                <p className="text-sm text-muted-foreground">疫苗状态和健康信息一目了然</p>
-              </CardContent>
-            </Card>
-            
+
             <Card className="text-center hover:shadow-dog-card transition-all duration-300 animate-slide-up" style={{animationDelay: '800ms'}}>
               <CardContent className="p-6">
                 <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
@@ -69,15 +70,6 @@ const Index = () => {
           <p className="text-muted-foreground mb-6">
             点击任意小狗查看详细信息，或使用NFC标签直接访问
           </p>
-          <div className="flex justify-center gap-2 flex-wrap">
-            <Badge variant="secondary">总计 {mockDogs.length} 只</Badge>
-            <Badge className="bg-green-500 text-white">
-              健康 {mockDogs.filter(d => d.healthStatus === 'excellent' || d.healthStatus === 'good').length} 只
-            </Badge>
-            <Badge variant="destructive">
-              需注意 {mockDogs.filter(d => d.hasBeenAggressive).length} 只
-            </Badge>
-          </div>
         </div>
 
         {/* Animated Grid */}
